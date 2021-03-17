@@ -1,0 +1,76 @@
+.browse-grid {
+    margin: 0 10%;
+    cursor: pointer;
+    display: flex;
+}
+
+.browse-item-container {
+    margin: 0 10%;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 5px;
+}
+
+.browse-grid-item {
+    display: grid;
+    place-items: center;
+    margin: 0;
+}
+
+.browse-grid p {
+    font-size: 1.1rem;
+}
+
+html, body {
+    height: 100%;
+}
+
+.content-view {
+    margin: 0 10% 2rem 10%;
+    width: 80%;
+    height: 75%;
+    position: relative;
+}
+
+.lesson-title {
+    display: grid;
+    place-items: center;
+    font-size: 1.8rem;
+}
+
+.lesson-slides {
+    background-color: black;
+    margin: 0 10%;
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+}
+
+.content-view table {
+    margin: 0 10%;
+    width: 80%;
+    max-height: 80%;
+    row-gap: 10px;
+}
+
+.content-view table tr:hover{
+    background-color: #ffeead;
+    cursor: pointer;
+}
+
+.content-view table tr td {
+    border-left: 3px solid #ffa07a;
+    border-bottom: .5px solid #ffa07a;
+    padding: 20px;
+}
+
+.browse-name {
+    font-size: xx-large;
+    margin: 0 0 10px 0;
+}
+
+.browse-desc {
+}

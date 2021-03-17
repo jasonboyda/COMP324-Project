@@ -7,10 +7,12 @@
 
     <title>Lessons</title>
     <link rel="stylesheet" href="common/css/main.css" />
+    <link rel="stylesheet" href="common/css/lessons.css" />
   </head>
 
-  <body>
+  <body onload="populateBrowseTable()">
     <script src="common/js/scripts.js"></script>
+    <script src="common/js/lessons.js"></script>
     <div class="navbar">
         <ul>
             <li><a href="/index.html">Home</a></li>
@@ -18,6 +20,21 @@
             <li><a class="selected" href="/lessons.html">Lessons</a></li>
             <li style="float:right"><a href="/profile.html">Profile</a></li>
         </ul>
+    </div>
+
+    <div class="browse-grid" onclick="browseClicked()">
+      <div class="browse-item-container">
+        <div class="browse-grid-item"><img src="common/img/4-rounded-squares.png" alt="Browse Lessons" height="20px" width="20px"></div>
+        <div class="browse-grid-item"><p>Browse Lesson Catalog</p></div>
+      </div>
+    </div>
+    
+    <div id="lessonView" style="display: none" class="content-view">
+      <div id="lessonTitle" class="lesson-title"></div>
+      <div class="lesson-slides"></div>
+    </div>
+    
+    <div id="browseView" class="content-view">
     </div>
   </body>
 </html>
