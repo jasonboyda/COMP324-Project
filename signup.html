@@ -24,7 +24,7 @@
     <div class="sign-up-form">
         <h2>Create Your User Profile</h2>
         <br>
-        <form>
+        <form name="signupform" method="GET">
             <label for="name">Full Name:</label><br>
             <input type="text" id="name" name="name"><br>
             <br>
@@ -41,7 +41,7 @@
             <label for="advanced">Advanced</label>
             <br>
             <br>
-            <label for="interest">Areas of Interest</label>
+            <label for="interest">Areas of Interest:</label>
             <br>
             <input type="checkbox" id="reading" name="reading" value="Reading">
             <label for="reading"> Reading</label><br>
@@ -60,8 +60,9 @@
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email"><br>
             <br>
-            <button type="button">Sign Up</button>
+            <input type="submit" value="Submit">
         </form>
+
     </div>
 </body>
 </html>
