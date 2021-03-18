@@ -4,7 +4,7 @@
 This page consists of the following sections:
   - Navbar: allows navigation to other pages of the site.
   - Our Mission Section: Details the mission statement of the team.
-  - Our Team Section: Provides a slider interface implemented using javascript 
+  - Our Team Section: Provides a slider interface implemented using javascript
     to view the list of teachers/instructors or other team members along with their email and subject taught.
   - Basic Footer
 
@@ -31,3 +31,8 @@ Currently the user information does get saved to a JavaScript file, but as we ar
 This page displays the user's profile information, which is input on the sign up page, including their name, email, username, and experience level with English.
 ##### Future Improvements:
 Currently the provided information is just added as text, but I would like the user profile page to be populated with the data that the user inputs when they fill out the sign up form. An additional feature that shows the user's lesson history may be added.
+
+## HOME/INDEX PAGE:
+This page will serve as the landing page and central location for users while on the site. So far I have focused my efforts on the design of the page and playing around with CSS/HTML primarily to get my vision onto the webpage.
+##### Future Improvements:
+My next steps are to wrap up the last remaining design element, discuss with the team on what we want the text to actually include, and then work on the data side of the webpage (Distinguishing between a signed in user and a signed out user, updating Nav bar to reflect that, etc.)
