@@ -8,15 +8,16 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="common/css/main.css" />
     <link rel="stylesheet" href="common/css/signup.css" type="text/css" />
+    <script src="common/js/signup.js"></script>
   </head>
   <body>
     <script src="common/js/scripts.js"></script>
     <div class="navbar">
         <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/schedule.html">Schedule</a></li>
-            <li><a href-"/lessons.html">Lessons</a></li>
-            <li><a href="/aboutus.html">About Us</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="schedule/schedule.html">Schedule</a></li>
+            <li><a href="lessons.html">Lessons</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
             <li style="float:right"><a class="selected" href="/signup.html">Sign Up</a></li>
             <li style="float:right"><a href="">Sign In</a></li>
         </ul>
@@ -24,7 +25,7 @@
     <div class="sign-up-form">
         <h2>Create Your User Profile</h2>
         <br>
-        <form name="signupform" method="GET">
+        <form name="signupform" method="POST">
             <label for="name">Full Name:</label><br>
             <input type="text" id="name" name="name"><br>
             <br>
@@ -33,21 +34,21 @@
             <br>
             <label for="engl-exp">Experience with English:</label>
             <br>
-            <input type="radio" id="novice" name="explvl" value="novice">
+            <input type="radio" id="novice" name="explvl" value="Novice">
             <label for="novice">Novice</label><br>
-            <input type="radio" id="intermediate" name="explvl" value="intermediate">
+            <input type="radio" id="intermediate" name="explvl" value="Intermediate">
             <label for="intermediate">Intermediate</label><br>
-            <input type="radio" id="advanced" name="explvl" value="advanced">
+            <input type="radio" id="advanced" name="explvl" value="Advanced">
             <label for="advanced">Advanced</label>
             <br>
             <br>
             <label for="interest">Areas of Interest:</label>
             <br>
-            <input type="checkbox" id="reading" name="reading" value="Reading">
+            <input type="checkbox" class="checkbox" id="reading" name="area" value="Reading">
             <label for="reading"> Reading</label><br>
-            <input type="checkbox" id="grammar" name="grammar" value="Grammar">
+            <input type="checkbox" class="checkbox" id="grammar" name="area" value="Grammar">
             <label for="grammar"> Grammar</label><br>
-            <input type="checkbox" id="conversation" name="conversation" value="Conversation">
+            <input type="checkbox" class="checkbox" id="conversation" name="area" value="Conversation">
             <label for="conversation">Conversation/Speaking</label>
             <br>
             <br>
@@ -60,9 +61,8 @@
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="email"><br>
             <br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Sign Up" onclick="getInfo()">
         </form>
-
     </div>
 </body>
 </html>
