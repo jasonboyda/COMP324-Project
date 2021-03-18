@@ -1,4 +1,4 @@
-# Discriptions for Different pages in the site:
+# Discriptions of Different pages in the site:
 
 ## ABOUT-US PAGE:
 This page consists of the following sections:
