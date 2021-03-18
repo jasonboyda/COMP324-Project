@@ -93,17 +93,19 @@ function changeSlide(num) {
         }
     }
 
-    slideIndex += num;
-    var slideView = document.getElementById("lessonSlides");
-    removeAllChildNodes(slideView);
-    var img = document.createElement('img');
-    img.style.display = "block";
-    img.style.maxHeight = "100%";
-    img.style.height = "auto";
-    img.style.maxWidth = "100%";
-    img.style.width = "auto";
-    img.src = lessons[index].slides[slideIndex];
-    slideView.appendChild(img);
+    if ((slideIndex + num >= 0) && (slideIndex + num < lessons[index].slides.length)) {
+        slideIndex += num;
+        var slideView = document.getElementById("lessonSlides");
+        removeAllChildNodes(slideView);
+        var img = document.createElement('img');
+        img.style.display = "block";
+        img.style.maxHeight = "100%";
+        img.style.height = "auto";
+        img.style.maxWidth = "100%";
+        img.style.width = "auto";
+        img.src = lessons[index].slides[slideIndex];
+        slideView.appendChild(img);
+    }
 }
 
 function removeAllChildNodes(parent) {
