@@ -38,7 +38,7 @@ html, body {
     font-size: 1.8rem;
 }
 
-.lesson-slides {
+.lesson-slides-container {
     background-color: black;
     margin: 0 10%;
     width: 80%;
@@ -62,14 +62,39 @@ html, body {
 }
 
 .content-view table tr td {
-    border-left: 3px solid #ffa07a;
+    border-left: 5px solid #ffa07a;
     border-bottom: .5px solid #ffa07a;
     padding: 20px;
+}
+
+.content-view .subtable {
+    margin: 0;
+    width: 100%;
+}
+
+.content-view .subtable tr:hover {
+    background-color: transparent;
+}
+
+.content-view .subtable tr td {
+    border: none;
+    padding: 0;
+    vertical-align: bottom;
 }
 
 .browse-name {
     font-size: xx-large;
     margin: 0 0 10px 0;
+}
+
+.browse-slides {
+    float: right;
+    font-size: large;
+}
+
+.browse-creator {
+    float: right;
+    font-style: italic;
 }
 
 .browse-desc {
