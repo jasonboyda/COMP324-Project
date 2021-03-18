@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="common/css/main.css" />
+    <link rel="stylesheet" href="common/css/signup.css" type="text/css" />
+    <script src="common/js/signup.js"></script>
+  </head>
+  
+  <body>
+    <script src="common/js/scripts.js"></script>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="schedule/schedule.html">Schedule</a></li>
+            <li><a href="lessons.html">Lessons</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li style="float:right"><a class="selected" href="/signup.html">Sign Up</a></li>
+            <li style="float:right"><a href="">Sign In</a></li>
+        </ul>
+    </div>
+    <div class="sign-up-form">
+        <h2>Create Your User Profile</h2>
+        <br>
+        <form name="signupform" method="POST">
+            <label for="name">Full Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <br>
+            <label for="age">Age: </label><br>
+            <input type="number" id="age" age="age"><br>
+            <br>
+            <label for="engl-exp">Experience with English:</label>
+            <br>
+            <input type="radio" id="novice" name="explvl" value="Novice">
+            <label for="novice">Novice</label><br>
+            <input type="radio" id="intermediate" name="explvl" value="Intermediate">
+            <label for="intermediate">Intermediate</label><br>
+            <input type="radio" id="advanced" name="explvl" value="Advanced">
+            <label for="advanced">Advanced</label>
+            <br>
+            <br>
+            <label for="interest">Areas of Interest:</label>
+            <br>
+            <input type="checkbox" class="checkbox" id="reading" name="area" value="Reading">
+            <label for="reading"> Reading</label><br>
+            <input type="checkbox" class="checkbox" id="grammar" name="area" value="Grammar">
+            <label for="grammar"> Grammar</label><br>
+            <input type="checkbox" class="checkbox" id="conversation" name="area" value="Conversation">
+            <label for="conversation">Conversation/Speaking</label>
+            <br>
+            <br>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <br>
+            <label for="password">Password (minimum of 8 characters):</label><br>
+            <input type="password" id="password" name="password" minlength="8" required><br>
+            <br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <br>
+            <input type="submit" value="Sign Up" onclick="getInfo()">
+        </form>
+    </div>
+</body>
+</html>
