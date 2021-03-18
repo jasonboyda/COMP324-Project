@@ -1,6 +1,6 @@
 # Discriptions for Different pages in the site:
 
-# ABOUT-US PAGE:
+## ABOUT-US PAGE:
 This page consists of the following sections:
   - Navbar: allows navigation to other pages of the site.
   - Our Mission Section: Details the mission statement of the team.
