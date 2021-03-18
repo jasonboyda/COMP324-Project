@@ -1,4 +1,4 @@
-# Discriptions of Different pages in the site:
+# Descriptions of Different pages in the site:
 
 ## ABOUT-US PAGE:
 This page consists of the following sections:
@@ -36,3 +36,8 @@ Currently the provided information is just added as text, but I would like the u
 This page will serve as the landing page and central location for users while on the site. So far I have focused my efforts on the design of the page and playing around with CSS/HTML primarily to get my vision onto the webpage.
 ##### Future Improvements:
 My next steps are to wrap up the last remaining design element, discuss with the team on what we want the text to actually include, and then work on the data side of the webpage (Distinguishing between a signed in user and a signed out user, updating Nav bar to reflect that, etc.)
+
+## SCHEDULE PAGE:
+This page has a calendar that shows the current date (month, day, and year). The current date is prominently displayed and highlighted on the calendar. Hovering over other days will produce a border around them. There are also arrows in the calendar head that can be clicked to show previous and future months in 2021. The page also has a nav bar which can be used to navigate to the other pages of the website.
+#####Future Improvements:
+I plan to continue working on the design of the calendar. It will be bigger and sizing will be adjusted dynamically as the window size changes. When a user clicks on a day, pop-ups need to be added in order for the user to first see the teacher's availability and then reserve a slot. There will also need to be a way to keep track of the slots booked so that they can be marked on the calendar and updated when a booking is made/cancelled.
