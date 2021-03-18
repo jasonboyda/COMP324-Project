@@ -24,6 +24,13 @@ The sign up page consists of the following:
 - User Profile Creation form: takes input from the user to create their profile
 
 The user fills out the form, which asks for their name, age, experience level with English, areas of interest for their lessons, and their email. The form also asks the user to create a username and passsword. When the user clicks the Sign Up button their information is then saved.
+
+### SIGN IN PAGE:
+  The Sign in page inlcludes a similar theme to the one that we've been using through the entire project, such as color and font/font size. The user is greeted with 2 input text boxes for the user to put their username and password. There is also a "Forgot your password?" function, which will (in the future) link to the database and allow the page to store user infortmation. 
+  
+### NEXT STEPS 
+In terms of next steps, we need to create a database, such as MongoDB. This will store the user credentials and dimensions in a dimensional model, allowing the site to pull and store information.
+  
 ##### Future Improvements
 Currently the user information does get saved to a JavaScript file, but as we are not sure how we will be saving the data yet it is not in use. Additionally, the user must be redirected to the home page after they sign up and this functionality has yet to be added.
 
