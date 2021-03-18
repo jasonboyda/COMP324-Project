@@ -46,5 +46,5 @@ My next steps are to wrap up the last remaining design element, discuss with the
 
 ## SCHEDULE PAGE:
 This page has a calendar that shows the current date (month, day, and year). The current date is prominently displayed and highlighted on the calendar. Hovering over other days will produce a border around them. There are also arrows in the calendar head that can be clicked to show previous and future months in 2021. The page also has a nav bar which can be used to navigate to the other pages of the website.
-#####Future Improvements:
+##### Future Improvements:
 I plan to continue working on the design of the calendar. It will be bigger and sizing will be adjusted dynamically as the window size changes. When a user clicks on a day, pop-ups need to be added in order for the user to first see the teacher's availability and then reserve a slot. There will also need to be a way to keep track of the slots booked so that they can be marked on the calendar and updated when a booking is made/cancelled.
