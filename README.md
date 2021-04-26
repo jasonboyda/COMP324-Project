@@ -1,12 +1,5 @@
 # Descriptions of Different pages in the site:
 
-## ABOUT-US PAGE:
-This page consists of the following sections:
-  - Navbar: allows navigation to other pages of the site.
-  - Our Mission Section: Details the mission statement of the team.
-  - Our Team Section: Provides a slider interface implemented using javascript
-    to view the list of teachers/instructors or other team members along with their email and subject taught.
-  - Basic Footer
 
 ## LESSON PAGE:
 The lessons page consists of two main views:
@@ -24,6 +17,13 @@ The sign up page consists of the following:
 - User Profile Creation form: takes input from the user to create their profile
 
 The user fills out the form, which asks for their name, age, experience level with English, areas of interest for their lessons, and their email. The form also asks the user to create a username and passsword. When the user clicks the Sign Up button their information is then saved.
+
+### SIGN IN PAGE:
+  The Sign in page inlcludes a similar theme to the one that we've been using through the entire project, such as color and font/font size. The user is greeted with 2 input text boxes for the user to put their username and password. There is also a "Forgot your password?" function, which will (in the future) link to the database and allow the page to store user infortmation. 
+  
+### NEXT STEPS 
+In terms of next steps, we need to create a database, such as MongoDB. This will store the user credentials and dimensions in a dimensional model, allowing the site to pull and store information.
+  
 ##### Future Improvements
 Currently the user information does get saved to a JavaScript file, but as we are not sure how we will be saving the data yet it is not in use. Additionally, the user must be redirected to the home page after they sign up and this functionality has yet to be added.
 
@@ -39,5 +39,13 @@ My next steps are to wrap up the last remaining design element, discuss with the
 
 ## SCHEDULE PAGE:
 This page has a calendar that shows the current date (month, day, and year). The current date is prominently displayed and highlighted on the calendar. Hovering over other days will produce a border around them. There are also arrows in the calendar head that can be clicked to show previous and future months in 2021. The page also has a nav bar which can be used to navigate to the other pages of the website.
-#####Future Improvements:
+##### Future Improvements:
 I plan to continue working on the design of the calendar. It will be bigger and sizing will be adjusted dynamically as the window size changes. When a user clicks on a day, pop-ups need to be added in order for the user to first see the teacher's availability and then reserve a slot. There will also need to be a way to keep track of the slots booked so that they can be marked on the calendar and updated when a booking is made/cancelled.
+
+## ABOUT-US PAGE:
+This page consists of the following sections:
+  - Navbar: allows navigation to other pages of the site.
+  - Our Mission Section: Details the mission statement of the team.
+  - Our Team Section: Provides a slider interface implemented using javascript
+    to view the list of teachers/instructors or other team members along with their email and subject taught.
+  - Basic Footer
