@@ -48,14 +48,14 @@ html {
 }
 
 .calendar {
-  width: 45rem;
-  height: 52rem;
+  width: 145rem;
+  height: 80rem;
   background-color:#ffeead;
 }
 
 .month {
   width: 100%;
-  height: 12rem;
+  height: 10rem;
   background-color: #ffa07a;
   display: flex;
   justify-content: space-between;
@@ -70,15 +70,15 @@ html {
 }
 
 .month h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight:  400;
   text-transform: uppercase;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.3rem;
   margin-bottom: 1rem;
 }
 
 .month p {
-  font-size: 1.6rem;
+  font-size: 1.9rem;
 }
 
 .weekdays {
@@ -90,10 +90,10 @@ html {
 }
 
 .weekdays div{
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 400;
   letter-spacing: 0.1rem;
-  width: calc(44.2rem/7);
+  width: calc(144.2rem/7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,17 +107,17 @@ html {
 }
 
 .days div {
-  font-size: 1.4rem;
+  font-size: 1.9rem;
   margin: 0.3rem;
-  width: calc(40.2rem/7);
-  height: 5rem;
+  width: calc(140.2rem/7);
+  height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color 0.2s;
 }
 
-.days div:hover:not(.today) {
+.days div:hover:not(.today):not(.next-date):not(.prev-date):not(.past-date) {
   background-color: #ffeead;
   border: 0.2rem solid #777;
   cursor: pointer;
@@ -130,4 +130,118 @@ opacity: 0.5;
 
 .today {
   background-color: #ffa07a;
+  border: 0.2rem solid #777;
+}
+
+.schedule-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity:0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.schedule-container.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.schedule {
+    background-color: #7ad9ff;
+    width: 25rem;
+    max-width: 100%;
+    height: 60rem;
+}
+
+.slots div{
+  font-size: 1.9rem;
+  width: 100%;
+  height: 6rem;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
+  border: 0.1rem solid black;
+  transition: background-color 0.2s;
+}
+
+button {
+  background-color: #7a97ff;
+  border: 0.13rem solid black;
+  font-size: 1.7rem;
+  font-weight: bold;
+  display: flex;
+  cursor: pointer;
+  position: absolute;
+}
+
+#close {
+  margin-left: 23rem;
+  padding: 0.1rem;
+  padding-left: 0.3rem;
+}
+
+.slots div:hover {
+  background-color:#c7efff;
+  border: 0.1rem solid #777;
+  cursor: pointer;
+}
+
+.confirm-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity:0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.confirm {
+  background-color: #7ad9ff;
+  border-radius: 5px;
+  margin: 2rem;
+  width: 38rem;
+  max-width: 100%;
+  height: 25rem;
+  padding: 5rem;
+  padding-bottom: 2rem;
+}
+.confirm p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  padding-bottom: 3rem;
+}
+
+#yes {
+ justify-content: flex;
+ margin: 3rem;
+ margin-left: 5rem;
+ padding: 0.5rem;
+}
+
+#no {
+ justify-content: flex;
+ margin: 3rem;
+ margin-left: 18rem;
+ padding: 0.5rem;
+}
+
+.confirm-container.show {
+  pointer-events: auto;
+  opacity: 1;
 }

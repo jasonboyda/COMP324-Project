@@ -13,7 +13,6 @@ const renderCalendar = () => {
   const firstDayIndex = date.getDay();
 
   const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay();
-  console.log(lastDayIndex);
 
   const nextDays = 7 - lastDayIndex - 1;
 
@@ -45,7 +44,11 @@ const renderCalendar = () => {
   for(let i = 1; i <= lastDay; i++) {
     if(i === new Date().getDate() && date.getMonth() === new Date().getMonth()){
       days += `<div class = "today">${i}</div>`;
-    } else{
+    }
+    else if (i < new Date().getDate() && date.getMonth() === new Date().getMonth()) {
+      days += `<div class = "past-date">${i}</div>`;
+    }
+    else{
       days += `<div>${i}</div>`;
     }
   }
@@ -54,6 +57,10 @@ const renderCalendar = () => {
     days += `<div class = "next-date">${k}</div>`;
     monthDays.innerHTML = days;
   }
+
+    for(let l = new Date().getDate(); l >= 1; l--) {
+      days += `<div class = "past-date">${l}</div`;
+    }
 };
 
 document.querySelector('.prev').addEventListener('click', () => {
@@ -66,3 +73,32 @@ document.querySelector('.next').addEventListener('click', () => {
   renderCalendar();
 })
 renderCalendar();
+
+const open = document.getElementById('open');
+const schedule_container = document.getElementById('schedule_container');
+const close = document.getElementById('close');
+
+open.addEventListener('click', () => {
+  schedule_container.classList.add('show');
+})
+
+close.addEventListener('click', () => {
+  schedule_container.classList.remove('show');
+})
+
+const confirm_container = document.getElementById('confirm_container');
+const open_confirm = document.getElementById('open_confirm');
+const yes = document.getElementById('yes');
+const no = document.getElementById('no');
+
+open_confirm.addEventListener('click', () => {
+  confirm_container.classList.add('show');
+})
+
+yes.addEventListener('click', () => {
+  confirm_container.classList.remove('show');
+})
+
+no.addEventListener('click', () => {
+  confirm_container.classList.remove('show');
+})
