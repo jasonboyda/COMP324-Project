@@ -1,5 +1,3 @@
-//ignore this, i've added it all to scripts.js
-
 //Get Elements
 const email = document.getElementById("email");
 const pass = document.getElementById("passwordSignUp");
@@ -12,6 +10,28 @@ submit.addEventListener("click", e => {
     const promise = firebase.auth().createUserWithEmailAndPassword(emailVal, passVal)
     promise.catch(e => console.log(e.message));
 })
+
+//Gets user information from sign up page
+const name = document.getElementById("name");
+const age = document.getElementById("age");
+if (document.getElementById('novice').checked) {
+    expLvl = document.getElementById('novice').value;
+  }
+if (document.getElementById('intermediate').checked) {
+    expLvl = document.getElementById('intermediate').value;
+}
+if (document.getElementById('advanced').checked) {
+    expLvl = document.getElementById('advanced').value;
+}
+//gets the checked areas of interest
+var checkboxes = document.getElementsByName('area');
+var vals = "";
+for (var i=0, n=checkboxes.length;i<n;i++) {
+    if (checkboxes[i].checked) {
+        vals += ", "+checkboxes[i].value;
+    }
+}
+
 /*
 function getInfo() {
     var name = document.getElementById("name").value;
