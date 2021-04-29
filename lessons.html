@@ -14,7 +14,7 @@
   <body onload="getlessons()">
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
-        
+     <!--   
     <script>
       var fbconfig = {
         apiKey: "AIzaSyB-gPH57wWtYE-aiLmoabj2njgLqsfF0LA",
@@ -29,17 +29,22 @@
       firebase.initializeApp(fbconfig);
       const db = firebase.database();
     </script>
-    <!--<script src="common/js/scripts.js"></script>-->
+    -->
+    <script src="common/js/scripts.js"></script>
+    <script>
+      const db = firebase.database();
+    </script>
     <script src="common/js/lessons.js"></script>
     <nav>
       <div class="navbar">
-          <ul>
-              <li><a href="/index.html">Home</a></li>
-              <li><a href="/aboutus.html">About</a></li>
-              <li><a href="/schedule/schedule.html">Schedule</a></li>
-              <li><a class="selected" href="/lessons.html">Lessons</a></li>
-              <li style="float:right"><a href="/userprofile.html">Profile</a></li>
-          </ul>
+        <ul>
+            <li><a href="/index_signed_in.html">Home</a></li>
+            <li><a href="aboutus.html">About</a></li>
+            <li><a href="schedule/schedule.html">Schedule</a></li>
+            <li><a href="lessons.html" class="selected">Lessons</a></li>
+            <li style="float:right"><a href="userprofile.html">Profile</a></li>
+            <li style="float:right"><a href="index.html">Sign Out</a></li>
+        </ul>
       </div>
     </nav>
 

@@ -9,7 +9,8 @@ var firebaseConfig = {
     storageBucket: "teachingaidwebsite.appspot.com",
     messagingSenderId: "957414388024",
     appId: "1:957414388024:web:87600402c176d3d42c11cd",
-    measurementId: "G-RJVDYE8HGB"
+    measurementId: "G-RJVDYE8HGB",
+    databaseUrl: "https://teachingaidwebsite-default-rtdb.firebaseio.com/"
 };
 
 // Initialize Firebase
