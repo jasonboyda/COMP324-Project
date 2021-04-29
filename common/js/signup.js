@@ -1,12 +1,10 @@
 //ignore this, i've added it all to scripts.js
 
-// Get Elements
-const email = document.getElementById('email');
-const pass = document.getElementById('password');
-const submit = document.getElementById('signUpButton');
+//Get Elements
+const email = document.getElementById("email");
+const pass = document.getElementById("passwordSignUp");
+const submit = document.getElementById("signUpButton");
 
-
-//add sign up event
 submit.addEventListener("click", e => {
     //Get email and password
     const emailVal = email.value;

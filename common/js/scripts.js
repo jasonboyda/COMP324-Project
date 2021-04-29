@@ -1,5 +1,3 @@
-//Captures initial experimentation with firebase Auth, but currently not functioning because sign in page login button returns "Cannot POST to..." 'Error'. 
-
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 var firebaseConfig = {
@@ -14,27 +12,29 @@ var firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+if (firebase.apps.length === 0) {
+    firebase.initializeApp(firebaseConfig);
+}
 
 //Get Elements
-const email = document.getElementById("email");
+/* const email = document.getElementById("email");
 const pass = document.getElementById("passwordSignUp");
-const submit = document.getElementById("signUpButton");
+const submit = document.getElementById("signUpButton"); */
 
-submit.addEventListener("click", e => {
+/* submit.addEventListener("click", e => {
     //Get email and password
     const emailVal = email.value;
     const passVal = pass.value;
     const promise = firebase.auth().createUserWithEmailAndPassword(emailVal, passVal)
     promise.catch(e => console.log(e.message));
-})
+}) */
 
 // Get Elements
-const login = document.getElementById("login");
+/* const login = document.getElementById("login");
 const password = document.getElementById("password");
-const commit = document.getElementById("commit");
+const commit = document.getElementById("commit"); */
     
-commit.addEventListener("click", e => {
+/* commit.addEventListener("click", e => {
     // Get email and pass
     const email = login.value;
     const pass = password.value;
@@ -43,6 +43,35 @@ commit.addEventListener("click", e => {
     // Sign in
     const promise = auth.signInWithEmailAndPassword(email, pass);
     promise.catch(e => console.log(e.message));
+    }) */
+const loggedInLinks = document.querySelectorAll('.logged-in');
+const loggedOutLinks = document.querySelectorAll('.logged-out');
+const setupUI = (user) => {
+    if (user) {
+        //toggle logged-in elements on, logged-out off
+        loggedInLinks.forEach(item => item.style.display = 'block');
+        loggedOutLinks.forEach(item => item.style.display = 'none');
+    }
+    else {
+        //toggle logged-in elements off, logged-out on
+        loggedInLinks.forEach(item => item.style.display = 'none');
+        loggedOutLinks.forEach(item => item.style.display = 'block');
+    }
+}
+
+const auth = firebase.auth();
+auth.onAuthStateChanged(user => {
+    if (user) {
+        setupUI(user);
+        //window.location = 'index.html'
+    }
+    else {
+        setupUI();
+    }
+})
+
+if (document.getElementById("sign-out")) { 
+    document.getElementById("sign-out").addEventListener("click", e =>{
+        firebase.auth().signOut();
     })
-
-
+}

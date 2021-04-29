@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
 
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
   </head>
   <body>
     <div class="navbar">
@@ -17,6 +20,7 @@
             <li><a href="/index.html">Home</a></li>
             <li><a class="selected" href="/schedule.html">Schedule</a></li>
             <li style="float:right"><a href="/userprofile.html">Profile</a></li>
+            <li style="float:right"><a id="sign-out" href="">Sign Out</a></li>
             <li><a href="/lessons.html">Lessons</a></li>
             <li><a href="/aboutus.html">About Us</a></li>
         </ul>
@@ -77,6 +81,7 @@
       </div>
 
       <script src= "script.js"></script>
+      <script src="/common/js/scripts.js"></script>
 
   </body>
 </html>
