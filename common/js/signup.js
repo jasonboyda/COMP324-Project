@@ -1,3 +1,20 @@
+//ignore this, i've added it all to scripts.js
+
+// Get Elements
+const email = document.getElementById('email');
+const pass = document.getElementById('password');
+const submit = document.getElementById('signUpButton');
+
+
+//add sign up event
+submit.addEventListener("click", e => {
+    //Get email and password
+    const emailVal = email.value;
+    const passVal = pass.value;
+    const promise = firebase.auth().createUserWithEmailAndPassword(emailVal, passVal)
+    promise.catch(e => console.log(e.message));
+})
+/*
 function getInfo() {
     var name = document.getElementById("name").value;
     var age = document.getElementById("age").value;
@@ -30,4 +47,4 @@ function getInfo() {
 function userProfile() {
     var body = document.createElement('p');
     body.innerHTML = [name, age, expLvl, vals, username, email];
-}
+}*/

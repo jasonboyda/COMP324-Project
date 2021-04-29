@@ -14,19 +14,34 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-    
+
+//Get Elements
+const email = document.getElementById("email");
+const pass = document.getElementById("passwordSignUp");
+const submit = document.getElementById("signUpButton");
+
+submit.addEventListener("click", e => {
+    //Get email and password
+    const emailVal = email.value;
+    const passVal = pass.value;
+    const promise = firebase.auth().createUserWithEmailAndPassword(emailVal, passVal)
+    promise.catch(e => console.log(e.message));
+})
+
 // Get Elements
-const login = document.getElementById('login');
-const password = document.getElementById('password');
-const commit = document.getElementById('commit');
+const login = document.getElementById("login");
+const password = document.getElementById("password");
+const commit = document.getElementById("commit");
     
-commit.addEventListener('commit', e => {
+commit.addEventListener("commit", e => {
     // Get email and pass
     const email = login.value;
     const pass = password.value;
     const auth = firebase.auth();
+    console.log(email, pass)
     // Sign in
-    const promise = auth.signInWithEmailAndPassword(email, pass);
-    promise.catch(e => console.log(e.message));
+    //const promise = auth.signInWithEmailAndPassword(email, pass);
+    //promise.catch(e => console.log(e.message));
     })
+
 
