@@ -74,7 +74,6 @@ if (document.getElementById("sign-out")) {
     document.getElementById("sign-out").addEventListener("click", e =>{
         if (firebase.auth().signOut()){
             setupUI();
-            windows.location = '/index.html'
         }
     })
 }
