@@ -15,7 +15,6 @@ function getlessons() {
 function browseClicked() {
     document.getElementById("lessonView").style.display = "none";
     document.getElementById("browseView").style.display = "block"; 
-    document.getElementById("browseTableIndex").style.display = "flex";
 }
 
 var slideIndex = 0;
@@ -82,7 +81,6 @@ function loadLesson(lesson) {
             tableIndexView.appendChild(next);
         
             document.getElementById("browseView").style.display = "none";
-            document.getElementById("browseTableIndex").style.display = "none";
             document.getElementById("lessonView").style.display = "block";
         });
 }
@@ -97,7 +95,6 @@ var catalogPageIndex = 0;
 
 function populateBrowseTable() {
     removeAllChildNodes(document.getElementById("browseView"));
-    removeAllChildNodes(document.getElementById("browseTableIndex"));
     var table = document.createElement('table');
     table.className = "browse-table-master";
     var start = catalogPageIndex * 5;
@@ -107,7 +104,6 @@ function populateBrowseTable() {
     }
 
     for (var i = start; i < end; i++ ) {
-        var curLesson = lessons[i];
         tr = table.insertRow(-1);
         tr.className = "browse-table-master-row";
         tr.id = "lesson"+i;
@@ -141,9 +137,9 @@ function populateBrowseTable() {
 
         td.appendChild(subtable);
     }
-    document.getElementById("browseView").appendChild(table);
 
-    var tableIndexView = document.getElementById("browseTableIndex");
+    var indexDiv = document.createElement('div');
+    indexDiv.className = "table-index";
     var previous = document.createElement("button");
     previous.appendChild(document.createTextNode("Previous"));
     if (catalogPageIndex == 0) {
@@ -153,8 +149,8 @@ function populateBrowseTable() {
         catalogPageIndex--;
         populateBrowseTable();
     }
-    tableIndexView.appendChild(previous);
-    tableIndexView.appendChild(document.createTextNode(catalogPageIndex+1 + " of " + Math.ceil(lessons.length / 5) ))
+    indexDiv.appendChild(previous);
+    indexDiv.appendChild(document.createTextNode(catalogPageIndex+1 + " of " + Math.ceil(lessons.length / 5) ))
     var next = document.createElement("button");
     next.appendChild(document.createTextNode("Next"));
     if (catalogPageIndex == Math.ceil(lessons.length / 5)) {
@@ -164,5 +160,7 @@ function populateBrowseTable() {
         catalogPageIndex++;
         populateBrowseTable();
     }
-    tableIndexView.appendChild(next);
+    indexDiv.appendChild(next);
+    document.getElementById("browseView").appendChild(table);
+    document.getElementById("browseView").appendChild(indexDiv);
 }

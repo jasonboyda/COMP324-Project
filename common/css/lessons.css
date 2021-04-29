@@ -1,3 +1,4 @@
+
 .browse-grid {
     margin: 0 10%;
     cursor: pointer;
@@ -105,4 +106,5 @@ html, body {
     justify-content: center;
     align-items: center;
     gap: 15px;
+    margin: 10px 0;
 }
