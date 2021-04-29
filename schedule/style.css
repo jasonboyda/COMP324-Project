@@ -183,15 +183,19 @@ button {
 }
 
 #close {
-  margin-left: 23rem;
+  margin-left: 23.2rem;
   padding: 0.1rem;
   padding-left: 0.3rem;
 }
 
-.slots div:hover {
-  background-color:#c7efff;
+.slots div:hover:not(.reserved){
+  background-color:#7affa0;
   border: 0.1rem solid #777;
   cursor: pointer;
+}
+
+.reserved {
+  background-color: #ff6e6e;
 }
 
 .confirm-container {

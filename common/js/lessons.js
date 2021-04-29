@@ -1,3 +1,17 @@
+var lessons = [];
+
+function getlessons() {
+    db.ref("lessons").once('value')
+        .then((snapshot)=>{ // snapshot of the data - request the return value for the data at the time of query...
+            const data=snapshot.val();
+            for (const l in data) {
+                lessons.push(data[l]);
+            }
+            populateBrowseTable();
+        });
+}
+
+
 function browseClicked() {
     document.getElementById("lessonView").style.display = "none";
     document.getElementById("browseView").style.display = "block"; 
@@ -6,106 +20,69 @@ function browseClicked() {
 var slideIndex = 0;
 
 function loadLesson(lesson) {
-    var lessons = [
-        {
-            id: "abc123",
-            name: "Lesson 1",
-            description: "Lesson 1 description",
-            creator: "Jane Doe",
-            slides: [
-                "common/img/lessons/lesson1-slide1.jpeg",
-                "common/img/lessons/lesson1-slide2.jpeg",
-                "common/img/lessons/lesson1-slide3.jpeg"
-            ]
-        },
-        {
-            id: "xyz789",
-            name: "Lesson 2",
-            description: "Lesson 2 description",
-            creator: "John Smith",
-            slides: [
-                "common/img/lessons/lesson2-slide1.jpeg",
-                "common/img/lessons/lesson2-slide2.jpeg",
-                "common/img/lessons/lesson2-slide3.jpeg",
-                "common/img/lessons/lesson2-slide4.jpeg"
-            ]
-        },
-    ]
-
-    var index = 0;
-    for (var i = 0; i < lessons.length; i++) {
-        var l = lessons[i];
-        if (l.name === lesson) {
-            index = i;
-            break;
-        }
-    }
-
-    slideIndex = 0;
-    document.getElementById("lessonTitle").innerHTML = lessons[index].name;
-    var slideView = document.getElementById("lessonSlides");
-    removeAllChildNodes(slideView);
-    var img = document.createElement('img');
-    img.style.display = "block";
-    img.style.maxHeight = "100%";
-    img.style.height = "auto";
-    img.style.maxWidth = "100%";
-    img.style.width = "auto";
-    img.src = lessons[index].slides[slideIndex];
-    slideView.appendChild(img);
-    document.getElementById("browseView").style.display = "none";
-    document.getElementById("lessonView").style.display = "block";
-}
-
-function changeSlide(num) {
-    var lessons = [
-        {
-            id: "abc123",
-            name: "Lesson 1",
-            description: "Lesson 1 description",
-            creator: "Jane Doe",
-            slides: [
-                "common/img/lessons/lesson1-slide1.jpeg",
-                "common/img/lessons/lesson1-slide2.jpeg",
-                "common/img/lessons/lesson1-slide3.jpeg"
-            ]
-        },
-        {
-            id: "xyz789",
-            name: "Lesson 2",
-            description: "Lesson 2 description",
-            creator: "John Smith",
-            slides: [
-                "common/img/lessons/lesson2-slide1.jpeg",
-                "common/img/lessons/lesson2-slide2.jpeg",
-                "common/img/lessons/lesson2-slide3.jpeg",
-                "common/img/lessons/lesson2-slide4.jpeg"
-            ]
-        },
-    ]
-    var index = 0;
-    lesson = document.getElementById("lessonTitle");
-    for (var i = 0; i < lessons.length; i++) {
-        var l = lessons[i];
-        if (l.name === lesson.innerHTML) {
-            index = i;
-            break;
-        }
-    }
-
-    if ((slideIndex + num >= 0) && (slideIndex + num < lessons[index].slides.length)) {
-        slideIndex += num;
-        var slideView = document.getElementById("lessonSlides");
-        removeAllChildNodes(slideView);
-        var img = document.createElement('img');
-        img.style.display = "block";
-        img.style.maxHeight = "100%";
-        img.style.height = "auto";
-        img.style.maxWidth = "100%";
-        img.style.width = "auto";
-        img.src = lessons[index].slides[slideIndex];
-        slideView.appendChild(img);
-    }
+    var slides = new Array();
+    db.ref('slides').orderByKey().equalTo(lesson.id).once('value')
+        .then((snapshot)=>{
+            const data = snapshot.val();
+            for (const l in data) {
+                slides = data[l].slides;
+            }
+            slideIndex = 0;
+            document.getElementById("lessonTitle").innerHTML = lesson.name;
+            var slideView = document.getElementById("lessonSlides");
+            removeAllChildNodes(slideView);
+            removeAllChildNodes(document.getElementById("lessonsSlideIndex"));
+            var img = document.createElement('img');
+            img.style.display = "block";
+            img.style.maxHeight = "100%";
+            img.style.height = "auto";
+            img.style.maxWidth = "100%";
+            img.style.width = "auto";
+            img.src = 'data:image/jpg;base64,'+slides[slideIndex];
+            slideView.appendChild(img);
+            var tableIndexView = document.getElementById("lessonsSlideIndex");
+            var previous = document.createElement("button");
+            previous.appendChild(document.createTextNode("Previous"));
+            if (slideIndex == 0) {
+                previous.disabled = true;
+            }
+            previous.onclick = function() {
+                slideIndex--;
+                next.disabled = false;
+                if (slideIndex == 0) {
+                    previous.disabled = true;
+                }
+                img.src = 'data:image/jpg;base64,'+slides[slideIndex];
+                pageNum = document.getElementById("slide-page-num");
+                removeAllChildNodes(pageNum);
+                pageNum.appendChild(document.createTextNode(slideIndex+1 + " of " + slides.length));
+            }
+            tableIndexView.appendChild(previous);
+            var pageNum = document.createElement('label');
+            pageNum.appendChild(document.createTextNode(slideIndex+1 + " of " + slides.length ));
+            pageNum.id = "slide-page-num";
+            tableIndexView.appendChild(pageNum);
+            var next = document.createElement("button");
+            next.appendChild(document.createTextNode("Next"));
+            if (slideIndex == slides.length-1) {
+                next.disabled = true;
+            }
+            next.onclick = function() {
+                slideIndex++;
+                previous.disabled = false;
+                if (slideIndex == slides.length-1) {
+                    next.disabled = true;
+                }
+                img.src = 'data:image/jpg;base64,'+slides[slideIndex];
+                pageNum = document.getElementById("slide-page-num");
+                removeAllChildNodes(pageNum);
+                pageNum.appendChild(document.createTextNode(slideIndex+1 + " of " + slides.length));
+            }
+            tableIndexView.appendChild(next);
+        
+            document.getElementById("browseView").style.display = "none";
+            document.getElementById("lessonView").style.display = "block";
+        });
 }
 
 function removeAllChildNodes(parent) {
@@ -114,45 +91,26 @@ function removeAllChildNodes(parent) {
     }
 }
 
+var catalogPageIndex = 0;
+
 function populateBrowseTable() {
-    var lessons = [
-        {
-            id: "abc123",
-            name: "Lesson 1",
-            description: "Lesson 1 description",
-            creator: "Jane Doe",
-            slides: [
-                "common/img/lessons/lesson1-slide1.jpeg",
-                "common/img/lessons/lesson1-slide2.jpeg",
-                "common/img/lessons/lesson1-slide3.jpeg"
-            ]
-        },
-        {
-            id: "xyz789",
-            name: "Lesson 2",
-            description: "Lesson 2 description",
-            creator: "John Smith",
-            slides: [
-                "common/img/lessons/lesson2-slide1.jpeg",
-                "common/img/lessons/lesson2-slide2.jpeg",
-                "common/img/lessons/lesson2-slide3.jpeg",
-                "common/img/lessons/lesson2-slide4.jpeg"
-            ]
-        },
-    ]
-    
+    removeAllChildNodes(document.getElementById("browseView"));
     var table = document.createElement('table');
     table.className = "browse-table-master";
-    for (var i = 0; i < lessons.length; i++ ) {
+    var start = catalogPageIndex * 5;
+    var end = start + 5;
+    if (lessons.length <= end) {
+        end = lessons.length;
+    }
+
+    for (var i = start; i < end; i++ ) {
         tr = table.insertRow(-1);
         tr.className = "browse-table-master-row";
-        var clickHandler = function(row) {
-            return function() {
-                var lesson = row.childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[0].innerHTML;
-                loadLesson(String(lesson));
-            };
-        };
-        tr.onclick = clickHandler(tr);
+        tr.id = "lesson"+i;
+        tr.onclick = function() {
+            var index = this.id.replace("lesson", "");
+            loadLesson(lessons[index]);
+        }
         var td = document.createElement('td');
         td = tr.insertCell(-1);
 
@@ -166,7 +124,7 @@ function populateBrowseTable() {
         var def = document.createElement('td');
         def = row.insertCell(-1);
         def.className = "browse-slides";
-        def.innerHTML = lessons[i].slides.length + " slides";
+        def.innerHTML = lessons[i].slide_count + " slides";
         row = subtable.insertRow(-1);
         var def = document.createElement('td');
         def = row.insertCell(-1);
@@ -178,33 +136,31 @@ function populateBrowseTable() {
         def.innerHTML = "Created by: "+ lessons[i].creator;
 
         td.appendChild(subtable);
-        /*
-        var td = document.createElement('td');
-        td = tr.insertCell(-1);
-        var div = document.createElement('div');
-        div.style.display = "flex";
-        var pTitle = document.createElement('p');
-        pTitle.className = "browse-name";
-        pTitle.innerHTML = lessons[i].name;
-        var pSlides = document.createElement('p');
-        pSlides.className = "browse-slides";
-        pSlides.innerHTML = lessons[i].slide_count;
-        div.appendChild(pTitle);
-        div.appendChild(pSlides);
-        td.appendChild(div);
-        var div = document.createElement('div');
-        div.style.display = "flex";
-        var pDesc = document.createElement('p');
-        pDesc.className = "browse-desc";
-        pDesc.innerHTML = lessons[i].description;
-        var pCreator = document.createElement('p');
-        pCreator.className = "browse-creator";
-        pCreator.innerHTML = lessons[i].creator;
-        div.appendChild(pDesc);
-        div.appendChild(pCreator);
-        td.appendChild(div);
-        */
     }
 
+    var indexDiv = document.createElement('div');
+    indexDiv.className = "table-index";
+    var previous = document.createElement("button");
+    previous.appendChild(document.createTextNode("Previous"));
+    if (catalogPageIndex == 0) {
+        previous.disabled = true;
+    }
+    previous.onclick = function() {
+        catalogPageIndex--;
+        populateBrowseTable();
+    }
+    indexDiv.appendChild(previous);
+    indexDiv.appendChild(document.createTextNode(catalogPageIndex+1 + " of " + Math.ceil(lessons.length / 5) ))
+    var next = document.createElement("button");
+    next.appendChild(document.createTextNode("Next"));
+    if (catalogPageIndex == Math.ceil(lessons.length / 5)) {
+        next.disabled = true;
+    }
+    next.onclick = function() {
+        catalogPageIndex++;
+        populateBrowseTable();
+    }
+    indexDiv.appendChild(next);
     document.getElementById("browseView").appendChild(table);
+    document.getElementById("browseView").appendChild(indexDiv);
 }

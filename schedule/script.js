@@ -1,5 +1,10 @@
 const date = new Date();
 
+const currentDate = new Date().getDate();
+console.log(currentDate);
+const currentMonth = new Date().getMonth();
+console.log(currentMonth);
+
 const renderCalendar = () => {
 
   date.setDate(1);
@@ -58,9 +63,6 @@ const renderCalendar = () => {
     monthDays.innerHTML = days;
   }
 
-    for(let l = new Date().getDate(); l >= 1; l--) {
-      days += `<div class = "past-date">${l}</div`;
-    }
 };
 
 document.querySelector('.prev').addEventListener('click', () => {
@@ -78,27 +80,32 @@ const open = document.getElementById('open');
 const schedule_container = document.getElementById('schedule_container');
 const close = document.getElementById('close');
 
-open.addEventListener('click', () => {
-  schedule_container.classList.add('show');
-})
-
-close.addEventListener('click', () => {
-  schedule_container.classList.remove('show');
-})
-
 const confirm_container = document.getElementById('confirm_container');
 const open_confirm = document.getElementById('open_confirm');
 const yes = document.getElementById('yes');
 const no = document.getElementById('no');
 
+open.addEventListener('click', () => {
+  schedule_container.classList.add('show');
+})
+
 open_confirm.addEventListener('click', () => {
-  confirm_container.classList.add('show');
+  if(schedule_container.classList.contains('show')) {
+      confirm_container.classList.add('show');
+  }
 })
 
 yes.addEventListener('click', () => {
   confirm_container.classList.remove('show');
+  schedule_container.classList.remove('show');
 })
 
 no.addEventListener('click', () => {
+  confirm_container.classList.remove('show');
+  schedule_container.classList.remove('show');
+})
+
+close.addEventListener('click', () => {
+  schedule_container.classList.remove('show');
   confirm_container.classList.remove('show');
 })
