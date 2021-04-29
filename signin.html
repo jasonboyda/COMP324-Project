@@ -8,11 +8,13 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="common/css/main.css" />
     <link rel="stylesheet" href="common/css/signup.css" type="text/css" />
+    <!--Firebase Scripts-->
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
   </head>
   
   <body>
-    <script src="common/js/scripts.js"></script>
     <div class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -25,14 +27,14 @@
     </div>
 
     <h1>Login To Your Account</h1>
-    <form method="post" action="">
       <p><input type="text" id="login" name="login" value="" placeholder="Email"></p>
       <p><input type="password" id="password" name="password" value="" placeholder="Password"></p>
      
       <link rel = "stylesheet" href="common/css/signin.css" />
-      <p class="submit"><input type="submit" id="commit" name="commit" value="Login"></p>
-    </form>
+      <p class="submit"><button class="submit" id="commit" name="commit" value="Login">Login</button></p>
   
   <div class="login-help">
     <p>Forgot your password? <a href="#">Click here to reset it</a>.</p>
   </div>
+  <script src="common/js/scripts.js" defer></script>
+</body>
