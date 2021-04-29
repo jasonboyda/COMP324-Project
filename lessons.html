@@ -14,12 +14,9 @@
   <body onload="getlessons()">
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#available-libraries -->
         
     <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
+      var fbconfig = {
         apiKey: "AIzaSyB-gPH57wWtYE-aiLmoabj2njgLqsfF0LA",
         authDomain: "teachingaidwebsite-6ede4.firebaseapp.com",
         projectId: "teachingaidwebsite-6ede4",
@@ -28,8 +25,8 @@
         appId: "1:78089789868:web:5a95f3f8e7f06b424c9a09",
         databaseURL: "https://teachingaidwebsite-6ede4-default-rtdb.firebaseio.com/"
       };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
+
+      firebase.initializeApp(fbconfig);
       const db = firebase.database();
     </script>
     <!--<script src="common/js/scripts.js"></script>-->
@@ -38,9 +35,10 @@
       <div class="navbar">
           <ul>
               <li><a href="/index.html">Home</a></li>
+              <li><a href="/aboutus.html">About</a></li>
               <li><a href="/schedule/schedule.html">Schedule</a></li>
               <li><a class="selected" href="/lessons.html">Lessons</a></li>
-              <li style="float:right"><a href="/profile.html">Profile</a></li>
+              <li style="float:right"><a href="/userprofile.html">Profile</a></li>
           </ul>
       </div>
     </nav>
