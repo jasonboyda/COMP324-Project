@@ -6,13 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Sign Up</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-auth.js"></script>
+    <!--Regular style sheets-->
     <link rel="stylesheet" href="common/css/main.css" />
     <link rel="stylesheet" href="common/css/signup.css" type="text/css" />
-    <script src="common/js/signup.js"></script>
   </head>
   
   <body>
-    <script src="common/js/scripts.js"></script>
+    <!--<script src="common/js/signup.js" defer></script>-->
     <div class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -26,7 +32,6 @@
     <div class="sign-up-form">
         <h2>Create Your User Profile</h2>
         <br>
-        <form name="signupform" method="POST">
             <label for="name">Full Name:</label><br>
             <input type="text" id="name" name="name"><br>
             <br>
@@ -53,17 +58,14 @@
             <label for="conversation">Conversation/Speaking</label>
             <br>
             <br>
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Email"><br>
             <br>
             <label for="password">Password (minimum of 8 characters):</label><br>
-            <input type="password" id="password" name="password" minlength="8" required><br>
+            <input type="password" id="passwordSignUp" name="password" minlength="8" required><br>
             <br>
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br>
-            <br>
-            <input type="submit" value="Sign Up" onclick="getInfo()">
-        </form>
+            <button class="signUpButton" id="signUpButton">Sign Up</button>
     </div>
+    <script src="common/js/scripts.js" defer></script>
 </body>
 </html>
