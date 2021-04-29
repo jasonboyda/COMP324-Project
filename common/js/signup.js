@@ -12,8 +12,9 @@ submit.addEventListener("click", e => {
 })
 
 //Gets user information from sign up page
-const name = document.getElementById("name");
+const name1 = document.getElementById("name");
 const age = document.getElementById("age");
+const expLvl = "";
 if (document.getElementById('novice').checked) {
     expLvl = document.getElementById('novice').value;
   }
@@ -61,8 +62,9 @@ function getInfo() {
     //gets email
     var email = document.getElementById("email").value;
 }
-//currently not a functional method
+*/
 function userProfile() {
     var body = document.createElement('p');
-    body.innerHTML = [name, age, expLvl, vals, username, email];
-}*/
+    body.innerHTML = [name1, age, expLvl, vals, email];
+    document.body.appendChild(body);
+}
